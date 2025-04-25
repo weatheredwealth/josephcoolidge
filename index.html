@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>No Tweas Here Tee</title>
+  <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #fff;
+      color: #111;
+      font-family: 'Helvetica', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    header {
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    #logo {
+      height: 24px;
+      cursor: pointer;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 60px;
+      padding: 80px 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .product-image img {
+      max-width: 600px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .product-info {
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .product-info h1 {
+      font-size: 22px;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    .price {
+      font-size: 16px;
+    }
+
+    .description {
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <label for="logo-upload">
+      <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/5/52/Your_Logo_Here.png" alt="Logo"/>
+    </label>
+    <input type="file" id="logo-upload" accept="image/*"/>
+  </header>
+
+  <main class="container">
+    <div class="product-image">
+      <img src="https://www.balenciaga.com/variants/images/43793759885907883/F/w1200.jpg" alt="360 Sunglasses T-shirt">
+    </div>
+    <div class="product-info">
+      <h1>No Tweas Here Tee</h1>
+      <div class="price">$675</div>
+      <div class="description">
+        Medium fit t-shirt in not-dirty white. <br>
+        Reasonable suspicion printed on the front. <br>
+        Made in i dont know. <br>
+        100% cotton. <br><br>
+        The model is 6' wearing a medium.
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const logoUpload = document.getElementById('logo-upload');
+    const logoImg = document.getElementById('logo');
+
+    logoUpload.addEventListener('change', function () {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          logoImg.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  </script>
+
+</body>
+</html>
